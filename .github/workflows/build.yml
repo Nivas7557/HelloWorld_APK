@@ -12,18 +12,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       
-      # ఆండ్రాయిడ్ బిల్డ్ టూల్ డౌన్‌లోడ్ చేయడం
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      # APK బిల్డ్ కమాండ్ రన్ చేయడం
       - name: Build with Gradle
         run: gradle assembleDebug
 
-      # బిల్డ్ అయిన APK ని డౌన్‌లోడ్ లింక్‌గా మార్చడం
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MyHelloWorldAPK
           path: app/build/outputs/apk/debug/*.apk
-          
